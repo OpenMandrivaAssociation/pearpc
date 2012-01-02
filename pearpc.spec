@@ -1,9 +1,4 @@
-# Copyright (c) 2008 SuSE Linux Products GmbH, Nuernberg, Germany.
-# This file and all modifications and additions to the pristine
-# package are under the same license as the package itself.
-
-# norootforbuild
-
+%define Werror_cflags %nil
 Name:         pearpc
 License:      GPL
 Group:        Emulators
@@ -21,8 +16,8 @@ PearPC is an architecture-independent PowerPC platform emulator capable of runni
 %setup
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr --enable-ui=sdl --mandir=%_mandir
-make %{?jobs:-j%jobs}
+%configure --enable-ui=sdl
+make 
 
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
