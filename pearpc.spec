@@ -8,13 +8,10 @@ Name:         pearpc
 License:      GPL
 Group:        unsorted
 Autoreqprov:  on
-Version:      0.4
-Release:      4.18
+Version:      0.5
+Release:      %mkrel 1
 Summary:      PowerPC platform emulator
 Source:       %name-%version.tar.bz2
-Patch:        stupidcast.patch
-Patch1:       jittypo.patch
-Patch2:       pearpc-rpmlint.patch
 BuildRequires: SDL-devel nasm gcc-c++
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
@@ -23,9 +20,6 @@ PearPC is an architecture-independent PowerPC platform emulator capable of runni
 
 %prep
 %setup
-%patch
-%patch1
-%patch2
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr --enable-ui=sdl --mandir=%_mandir
@@ -37,6 +31,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc video.x ppccfg.example AUTHORS ChangeLog README TODO
-/usr/bin/ppc
+%{_bindir}/ppc
 %doc %_mandir/man1/*
 
