@@ -6,6 +6,11 @@ Version:      0.5
 Release:      %mkrel 1
 Summary:      PowerPC platform emulator
 Source:       %name-%version.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: SDL-devel nasm gcc-c++
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
