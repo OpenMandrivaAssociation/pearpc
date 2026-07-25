@@ -3,7 +3,7 @@ Name:         pearpc
 License:      GPL
 Group:        Emulators
 Version:      0.5
-Release:      %mkrel 1
+Release:      2
 Summary:      PowerPC platform emulator
 Source:       %name-%version.tar.bz2
 BuildRequires:	autoconf
